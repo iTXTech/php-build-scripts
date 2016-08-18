@@ -5,7 +5,7 @@
 set -e
 shopt -s extglob
 
-PHP_VERSION="7.0.9"
+PHP_VERSION="7.0.10"
 PHP_VERSION_BASE="${PHP_VERSION:0:3}"
 EXTENSIONS="pthreads weakref yaml"
 pthreads_VERSION="3.1.6"

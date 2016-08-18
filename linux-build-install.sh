@@ -10,7 +10,7 @@ set -e
 mkdir -p work
 cd work
 
-curl -fsSL http://www.php.net/distributions/php-7.0.9.tar.xz | tar -xJf - --strip-components=1
+curl -fsSL http://www.php.net/distributions/php-7.0.10.tar.xz | tar -xJf - --strip-components=1
 
 ./configure \
     --disable-cgi \
