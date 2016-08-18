@@ -2,6 +2,9 @@
 
 # Requirements: curl, sudo, tar, building tools
 
+[ -z "${PREFIX}" ] && PREFIX=/usr/local
+[ -w "${PREFIX}" ] || SUDO=sudo
+
 set -e
 
 mkdir -p work
@@ -18,18 +21,19 @@ curl -fsSL http://www.php.net/distributions/php-7.0.9.tar.xz | tar -xJf - --stri
     --with-libedit \
     --with-openssl \
     --with-zlib \
-    --enable-maintainer-zts
+    --enable-maintainer-zts \
+    --prefix="${PREFIX}"
 
 make -j`nproc`
-sudo make install
+$SUDO make install
 
-sudo pecl install channel://pecl.php.net/pthreads-3.1.6 channel://pecl.php.net/weakref-0.3.2 channel://pecl.php.net/yaml-2.0.0RC8
+$SUDO "${PREFIX}/bin/pecl" install channel://pecl.php.net/pthreads-3.1.6 channel://pecl.php.net/weakref-0.3.2 channel://pecl.php.net/yaml-2.0.0RC8
 
 echo "phar.readonly = off
 extension = yaml.so
 extension = pthreads.so
 extension = weakref.so
-" | sudo tee /usr/local/lib/php.ini > /dev/null
+" | $SUDO tee "${PREFIX}/lib/php.ini" > /dev/null
 
 cd ..
 rm -rf work

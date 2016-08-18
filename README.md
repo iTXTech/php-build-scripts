@@ -7,3 +7,5 @@ Dependencies: bsdtar, curl
 
 Run this to build and install PHP configure to match your environment.
 You need build dependencies and curl, sudo, tar.
+
+Environment variable "$PREFIX" can be set to install to other locations.
