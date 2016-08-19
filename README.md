@@ -7,5 +7,8 @@ Dependencies: bsdtar, curl
 
 Run this to build and install PHP configure to match your environment.
 You need build dependencies and curl, sudo, tar.
+* For Debian-based distros: `apt install libssl-dev autoconf pkg-config curl libedit-dev libsqlite3-dev libxml2-dev libcurl4-openssl-dev libyaml-dev`
+* For RPM-based-distros: `yum install autoconf pkg-config curl libedit-devel libsqlite3-devel libxml2-devel libyaml-devel libcurl-devel`  
+Note that you probably want dnf instead on Fedora.
 
 Environment variable "$PREFIX" can be set to install to other locations.
