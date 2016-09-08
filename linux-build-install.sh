@@ -21,6 +21,7 @@ curl -fsSL http://www.php.net/distributions/php-7.0.10.tar.xz | tar -xJf - --str
     --with-libedit \
     --with-openssl \
     --with-zlib \
+    --enable-pcntl \
     --enable-maintainer-zts \
     --prefix="${PREFIX}"
 
