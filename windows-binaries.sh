@@ -13,9 +13,6 @@ weakref_VERSION="0.3.2"
 yaml_VERSION="2.0.0RC8"
 CYGWIN_PACKAGES=(cygwin mintty)
 cygwin_VERSION="2.6.0-1"
-
-DOWNLOADS=()
-EXTRACTS=()
 mintty_VERSION="2.6.2-0"
 
 get () {
@@ -51,6 +48,8 @@ pack () {
 }
 
 for ARCH in x86 x64; do
+    DOWNLOADS=()
+    EXTRACTS=()
     mkdir -p work
     mkdir -p work/bin/php/ext
     mkdir -p download
