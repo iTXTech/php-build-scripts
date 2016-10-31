@@ -33,6 +33,7 @@ echo "phar.readonly = off
 extension = yaml.so
 extension = pthreads.so
 extension = weakref.so
+zend.assertions = -1
 " | $SUDO tee "${PREFIX}/lib/php.ini" > /dev/null
 
 cd ..

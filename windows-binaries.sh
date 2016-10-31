@@ -103,6 +103,7 @@ opcache.save_comments=1
 opcache.load_comments=1
 opcache.fast_shutdown=0
 opcache.optimization_level=0xffffffff
+zend.assertions=-1
 " > work/bin/php/php.ini
     do_download
     # Assuming such libraries exist.
