@@ -109,7 +109,7 @@ zend.assertions=-1
     # Assuming such libraries exist.
     mv work/bin/php/ext/!(php_*).dll work/bin/php/
     find work -type f -not -name "*.dll" -not -name "*.exe" -not -name "php.ini" -not -name "start.cmd" -print0 | xargs -0 rm -f
-    pack "php_windows_${PHP_VERSION}_${ARCH}.zip"
+    pack "php_windows_${ARCH}_${PHP_VERSION}.zip"
     rm -rf work
     rm -rf download
 done
