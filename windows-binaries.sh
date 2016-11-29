@@ -108,7 +108,9 @@ zend.assertions=-1
     do_download
     # Assuming such libraries exist.
     mv work/bin/php/ext/!(php_*).dll work/bin/php/
-    find work -type f -not -name "*.dll" -not -name "mintty.exe" -not -name "php.exe" -not -name "php.ini" -not -name "start.cmd" -not -name "openssl.cnf" -print0 | xargs -0 rm -f
+    find work -type f \( \! -name "*.dll" \! -name "mintty.exe" \! -name "php.exe" \
+        \! -name "php.ini" \! -name "start.cmd" \! -name "openssl.cnf" \
+        -o -name "icu*.dll" -o -name "php_intl.dll" \) -print0 | xargs -0 rm -f
     pack "php_windows_${ARCH}_${PHP_VERSION}.zip"
     rm -rf work
     rm -rf download
