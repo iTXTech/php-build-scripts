@@ -15,7 +15,6 @@ test:
 deployment:
   upload:
     branch: master
-    pre:
-     - pyenv global 2.7
     commands:
+     - pyenv global 2.7
      - /opt/google-cloud-sdk/bin/gsutil -m cp -a public-read php_* gs://itx-technologies-141911.appspot.com/php_for_genisys/
