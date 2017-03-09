@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   pre:
-   - sudo apt install aria2 bsdtar
+   - sudo apt install aria2
   post:
    - echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
 
