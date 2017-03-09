@@ -12,8 +12,8 @@ pthreads_VERSION="3.1.6"
 weakref_VERSION="0.3.3"
 yaml_VERSION="2.0.0"
 CYGWIN_PACKAGES=(cygwin mintty)
-cygwin_VERSION="2.6.0-1"
-mintty_VERSION="2.7.2-0"
+cygwin_VERSION="2.7.0-1"
+mintty_VERSION="2.7.4-0"
 
 get () {
     DOWNLOADS+=("${1}")
