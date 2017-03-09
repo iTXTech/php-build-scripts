@@ -1,0 +1,21 @@
+machine:
+  environment:
+    GOOGLE_APPLICATION_CREDENTIALS: ${HOME}/gcloud-service-key.json
+
+dependencies:
+  pre:
+   - sudo apt install aria2 bsdtar
+  post:
+   - echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+
+test:
+  override:
+   - ./windows-binaries.sh
+
+deployment:
+  upload:
+    branch: master
+    pre:
+     - pyenv global 2.7
+    commands:
+     - /opt/google-cloud-sdk/bin/gsutil -m cp -a public-read php_* gs://itx-technologies-141911.appspot.com/php_for_genisys/
