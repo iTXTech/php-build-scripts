@@ -1,12 +1,9 @@
-machine:
-  environment:
-    GOOGLE_APPLICATION_CREDENTIALS: ${HOME}/gcloud-service-key.json
-
 dependencies:
   pre:
    - sudo apt install aria2
   post:
    - echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+   - gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
 
 test:
   override:
