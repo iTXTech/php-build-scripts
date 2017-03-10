@@ -86,6 +86,7 @@ extension=php_sqlite3.dll
 extension=php_sockets.dll
 extension=php_mbstring.dll
 extension=php_yaml.dll
+extension=php_gmp.dll
 extension=php_pthreads.dll
 extension=php_openssl.dll
 extension=php_com_dotnet.dll

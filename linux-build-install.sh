@@ -16,6 +16,7 @@ curl -fsSL http://www.php.net/distributions/php-7.0.16.tar.xz | tar -xJf - --str
     --disable-cgi \
     --enable-mbstring \
     --enable-bcmath \
+    --enable-gmp \
     --enable-sockets \
     --with-curl \
     --with-libedit \
