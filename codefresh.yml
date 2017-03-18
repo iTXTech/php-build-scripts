@@ -1,0 +1,28 @@
+version: '1.0'
+steps:
+  build_packaging_image:
+    title: Building image for packaging
+    type: build
+    image_name: php-build-scripts-packaging
+    working_directory: ${{main_clone}}/ci/packaging
+  test_and_package:
+    title: Package Windows binaries
+    image: ${{build_packaging_image}}
+    commands:
+      - ./windows-binaries.sh
+  deploy:
+    title: Deploying to Google Cloud Storage
+    image: quay.io/ishitatsuyuki/cloud-sdk
+    commands:
+      - echo "${{GCP_SERVICE_ACCOUNT}}" | base64 --decode --ignore-garbage > gcp-service-account.json
+      - gcloud auth activate-service-account --key-file=gcp-service-account.json
+      - gsutil -q -m cp -a public-read php_* gs://itx-technologies-141911.appspot.com/php_for_genisys/
+    when:
+      branch:
+        only:
+          - master
+  cleanup:
+    title: Cleaning up working directory
+    image: codefreshio/git-image:latest
+    commands:
+      - git clean -xfd
