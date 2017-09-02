@@ -9,8 +9,8 @@ Run this to build and install PHP configure to match your environment.
 You need basic compiler package group, build dependencies and curl, sudo, tar.
 
 The following is just for reference:  
-* For Debian-based distros: `libssl-dev autoconf pkg-config curl libedit-dev libsqlite3-dev libxml2-dev libcurl4-openssl-dev libyaml-dev libzip-dev`
-* For RPM-based-distros: `autoconf pkg-config curl libedit-devel libsqlite3-devel libxml2-devel libyaml-devel libcurl-devel libzip-last-devel`
+* For Debian-based distros: `libssl-dev autoconf pkg-config curl libedit-dev libsqlite3-dev libxml2-dev libcurl4-openssl-dev libyaml-dev libzip-dev libgmp-dev`
+* For RPM-based-distros: `autoconf pkg-config curl libedit-devel libsqlite3-devel libxml2-devel libyaml-devel libcurl-devel libzip-last-devel libgmp-devel`
 
 * If you are using Ubuntu 17.04 and above, configure can not locate the libcurl, so you need to `sudo ln -s /usr/include/x86_64-linux-gnu/curl /usr/include`
 

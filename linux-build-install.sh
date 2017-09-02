@@ -22,7 +22,7 @@ curl -fsSL http://www.php.net/distributions/php-7.0.23.tar.xz | tar -xJf - --str
     --with-libedit \
     --with-openssl \
     --with-zlib \
-	--with-gmp \
+    --with-gmp \
     --enable-pcntl \
     --enable-maintainer-zts \
     --prefix="${PREFIX}"
