@@ -38,6 +38,4 @@ $ bash install.sh
 
 See [releases](https://github.com/iTXTech/php-build-scripts/releases)
 
-Include `pthreads` and `yaml`.
-
-`runkit7` will be available shortly.
+**Note that `swoole` cannot run on Windows, use WSL instead.**
