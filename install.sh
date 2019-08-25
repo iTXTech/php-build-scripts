@@ -9,7 +9,7 @@ PROXYCHAINS=
 
 PHP_VERSION=7.3.8
 YAML_VERSION=2.0.4
-SWOOLE_VERSION=4.4.3
+SWOOLE_VERSION=4.4.4
 ZIP_VERSION=1.15.4
 
 set -e
@@ -21,7 +21,7 @@ $PROXYCHAINS $DL http://www.php.net/distributions/php-$PHP_VERSION.tar.xz
 tar -xJf php-$PHP_VERSION.tar.xz
 cd php-$PHP_VERSION
 
-echo \
+./configure \
     --disable-cgi \
     --enable-mbstring \
     --enable-bcmath \
@@ -51,7 +51,7 @@ $PROXYCHAINS git clone https://github.com/krakjoe/pthreads.git --depth=1
 cd pthreads
 phpize
 ./configure
-make -j'nproc'
+make -j`nproc`
 $SUDO make install
 cd ..
 
@@ -60,7 +60,7 @@ tar -zxf swoole-$SWOOLE_VERSION.tgz
 cd swoole-$SWOOLE_VERSION
 phpize
 ./configure --enable-http2 --enable-sockets --enable-openssl
-make -j'nproc'
+make -j`nproc`
 $SUDO make install
 cd ..
 
@@ -68,7 +68,7 @@ $PROXYCHAINS git clone https://github.com/swoole/ext-async.git --depth=1
 cd ext-async
 phpize
 ./configure
-make -j'nproc'
+make -j`nproc`
 $SUDO make install
 cd ..
 
@@ -77,7 +77,7 @@ tar -zxf yaml-$YAML_VERSION.tgz
 cd yaml-$YAML_VERSION
 phpize
 ./configure
-make -j'nproc'
+make -j`nproc`
 $SUDO make install
 cd ..
 
@@ -86,7 +86,7 @@ tar -zxf zip-$ZIP_VERSION.tgz
 cd zip-$ZIP_VERSION
 phpize
 ./configure
-make -j'nproc'
+make -j`nproc`
 $SUDO make install
 cd ..
 
@@ -94,7 +94,7 @@ $PROXYCHAINS git clone https://github.com/runkit7/runkit7.git --depth=1
 cd runkit7
 phpize
 ./configure
-make -j'nproc'
+make -j`nproc`
 $SUDO make install
 cd ..
 
