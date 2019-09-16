@@ -1,15 +1,13 @@
 #!/bin/bash
 
-# Requirements: curl, sudo, tar, building tools
-
 PREFIX=/usr/local
 SUDO=sudo
 DL=wget
 PROXYCHAINS=
 
-PHP_VERSION=7.3.8
+PHP_VERSION=7.3.9
 YAML_VERSION=2.0.4
-SWOOLE_VERSION=4.4.4
+SWOOLE_VERSION=4.4.5
 ZIP_VERSION=1.15.4
 
 set -e
@@ -26,7 +24,7 @@ cd php-$PHP_VERSION
     --enable-mbstring \
     --enable-bcmath \
     --enable-pdo \
-    --with-mysql-pdo \
+    --with-pdo-mysql \
     --with-sodium \
     --enable-sockets \
     --with-curl \
