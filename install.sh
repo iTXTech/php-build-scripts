@@ -5,10 +5,11 @@ SUDO=sudo
 DL=wget
 PROXYCHAINS=
 
-PHP_VERSION=7.3.9
+PHP_VERSION=7.3.13
 YAML_VERSION=2.0.4
-SWOOLE_VERSION=4.4.5
-ZIP_VERSION=1.15.4
+ZIP_VERSION=1.15.5
+RUNKIT7_VERSION=3.1.0a1
+MONGODB_VERSION=1.6.1
 
 set -e
 
@@ -53,17 +54,9 @@ make -j`nproc`
 $SUDO make install
 cd ..
 
-$PROXYCHAINS $DL https://pecl.php.net/get/swoole-$SWOOLE_VERSION.tgz
-tar -zxf swoole-$SWOOLE_VERSION.tgz
-cd swoole-$SWOOLE_VERSION
-phpize
-./configure --enable-http2 --enable-sockets --enable-openssl
-make -j`nproc`
-$SUDO make install
-cd ..
-
-$PROXYCHAINS git clone https://github.com/swoole/ext-async.git --depth=1
-cd ext-async
+$PROXYCHAINS $DL https://pecl.php.net/get/mongodb-$MONGODB_VERSION.tgz
+tar -zxf mongodb-$MONGODB_VERSION.tgz
+cd mongodb-$MONGODB_VERSION
 phpize
 ./configure
 make -j`nproc`
@@ -88,8 +81,9 @@ make -j`nproc`
 $SUDO make install
 cd ..
 
-$PROXYCHAINS git clone https://github.com/runkit7/runkit7.git --depth=1
-cd runkit7
+$PROXYCHAINS $DL https://pecl.php.net/get/runkit7-$RUNKIT7_VERSION.tgz
+tar -zxf runkit7-$RUNKIT7_VERSION.tgz
+cd runkit7-$RUNKIT7_VERSION
 phpize
 ./configure
 make -j`nproc`
@@ -99,8 +93,7 @@ cd ..
 echo "phar.readonly = off
 extension = yaml.so
 extension = pthreads.so
-extension = swoole.so
-extension = swoole_async.so
+extension = mongodb.so
 extension = runkit7.so
 extension = zip.so
 zend_extension = opcache.so
